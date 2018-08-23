@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Conversão Galao x Litro</title>
+</head>
+<body>
+    <h1>Conversão Galão x Litro</h1>
+    <form action="/" method="post">
+        <input type="text" name="txtGalao" value="" />
+        <input type="submit" name="btnSubmit" value="Calcular" />
+        @if (ViewBag.ResultadoConversao != null)
+        {
+            <h2>Resultado da Conversão: <span id="lblResultado" style="color:red;">@ViewBag.ResultadoConversao</span> Litros</h2>
+        }
+    </form>
+</body>
+</html>
