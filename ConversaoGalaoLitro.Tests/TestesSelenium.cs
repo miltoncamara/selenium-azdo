@@ -1,20 +1,34 @@
-﻿using ConversaoGalaoLitro.Dominio;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
-using System;
-using Xunit;
 
-namespace ConversaoGalaoLitro.Testes
+namespace ConversaoGalaoLitro.Tests
 {
-    public class TestesSelenium : IDisposable
+    [TestClass]
+    public class TestesSelenium
     {
+        private TestContext testContextInstance;
         private IWebDriver driver;
         private string appURL;
 
-        public TestesSelenium()
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        [TestInitialize()]
+        public void Initialize()
         {
             appURL = "http://localhost:50237/";
 
@@ -36,11 +50,11 @@ namespace ConversaoGalaoLitro.Testes
             }
         }
 
-        [Theory]
-        [InlineData(1, 3.7854)]
-        [InlineData(2, 7.5708)]
-        [InlineData(3, 11.3562)]
-        [Trait("Category", "TestesSelenium")]
+        [TestMethod]
+        [DataRow(1, 3.7854)]
+        [DataRow(2, 7.5708)]
+        [DataRow(3, 11.3562)]
+        [TestCategory("TestesSelenium")]
         public void CalcularGaloesParaLitro(double galoes, double resultadoEsperado)
         {
             driver.Navigate().GoToUrl(appURL);
@@ -49,10 +63,11 @@ namespace ConversaoGalaoLitro.Testes
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
             wait.Until((d) => d.FindElement(By.Id("lblResultado")) != null);
             var resultado = Convert.ToDouble(driver.FindElement(By.Id("lblResultado")).Text);
-            Assert.Equal(resultadoEsperado, resultado);
+            Assert.Equals(resultadoEsperado, resultado);
         }
 
-        public void Dispose()
+        [TestCleanup()]
+        public void CleanUp()
         {
             driver.Quit();
         }
