@@ -55,7 +55,7 @@ namespace ConversaoGalaoLitro.Tests
         [DataRow(2, 7.5708)]
         [DataRow(3, 11.3562)]
         [TestCategory("TestesSelenium")]
-        public void CalcularGaloesParaLitro(double galoes, double resultadoEsperado)
+        public void CalcularGaloesParaLitro_Selenium(double galoes, double resultadoEsperado)
         {
             driver.Navigate().GoToUrl(appURL);
             driver.FindElement(By.Name("txtGalao")).SendKeys(galoes.ToString());
