@@ -15,7 +15,7 @@ namespace ConversaoGalaoLitro.Tests
         {
             var conversao = new Conversao();
             var resultado = conversao.GalaoParaLitros(galoes);
-            Assert.Equals(resultadoEsperado, resultado);
+            Assert.AreEqual(resultadoEsperado, resultado);
         }
     }
 }

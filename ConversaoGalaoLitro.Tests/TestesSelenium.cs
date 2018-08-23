@@ -63,7 +63,7 @@ namespace ConversaoGalaoLitro.Tests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
             wait.Until((d) => d.FindElement(By.Id("lblResultado")) != null);
             var resultado = Convert.ToDouble(driver.FindElement(By.Id("lblResultado")).Text);
-            Assert.Equals(resultadoEsperado, resultado);
+            Assert.AreEqual(resultadoEsperado, resultado);
         }
 
         [TestCleanup()]
