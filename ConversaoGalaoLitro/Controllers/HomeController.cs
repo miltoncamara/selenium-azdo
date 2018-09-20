@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConversaoGalaoLitro.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +19,8 @@ namespace ConversaoGalaoLitro.Controllers
         public ActionResult Index(FormCollection frm)
         {
             var valorGalao = Convert.ToDouble(frm["txtGalao"]);
-            var resultadoConversao = valorGalao * 3.7854;
+            var conversao = new Conversao();
+            var resultadoConversao = conversao.GalaoParaLitros(valorGalao);
             ViewBag.ResultadoConversao = resultadoConversao;
 
             return View();

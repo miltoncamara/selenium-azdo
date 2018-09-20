@@ -104,6 +104,7 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\meetup-selenium - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,6 +115,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConversaoGalaoLitro.Dominio\ConversaoGalaoLitro.Dominio.csproj">
+      <Project>{33D910F5-5B1D-4CE6-8EAB-2ABF3310FDDB}</Project>
+      <Name>ConversaoGalaoLitro.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

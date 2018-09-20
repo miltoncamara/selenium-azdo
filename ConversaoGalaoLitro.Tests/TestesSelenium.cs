@@ -30,13 +30,16 @@ namespace ConversaoGalaoLitro.Tests
         [TestInitialize()]
         public void Initialize()
         {
-            appURL = "https://selenium-testes.azurewebsites.net/";
+            appURL = "https://meetup-selenium.azurewebsites.net/";
+            //appURL = "http://localhost:50237/";
 
             string browser = "Chrome";
+
             switch (browser)
             {
                 case "Chrome":
-                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+                    //driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+                    driver = new ChromeDriver();
                     break;
                 case "Firefox":
                     driver = new FirefoxDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
