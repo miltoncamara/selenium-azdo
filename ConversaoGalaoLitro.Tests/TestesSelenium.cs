@@ -30,7 +30,7 @@ namespace ConversaoGalaoLitro.Tests
         [TestInitialize()]
         public void Initialize()
         {
-            appURL = "https://meetup-selenium.azurewebsites.net/";
+            appURL = Environment.GetEnvironmentVariable("APP_URL");
             //appURL = "http://localhost:50237/";
 
             string browser = "Chrome";
