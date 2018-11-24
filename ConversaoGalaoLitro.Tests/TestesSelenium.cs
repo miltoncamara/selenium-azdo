@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing.Imaging;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -66,6 +68,12 @@ namespace ConversaoGalaoLitro.Tests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
             wait.Until((d) => d.FindElement(By.Id("lblResultado")) != null);
             var resultado = Convert.ToDouble(driver.FindElement(By.Id("lblResultado")).Text);
+
+            Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
+            string fileName = TestContext.TestResultsDirectory + "Screenshot_" + TestContext.TestName + DateTime.Now.ToString("yyyy-dd-MM-HH-mm-ss") + ".png";
+            screenShot.SaveAsFile((fileName), ScreenshotImageFormat.Png);
+            TestContext.AddResultFile(fileName);
+
             Assert.AreEqual(resultadoEsperado, resultado);
         }
 
