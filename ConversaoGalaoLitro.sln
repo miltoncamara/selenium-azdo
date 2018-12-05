@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConversaoGalaoLitro.Dominio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversaoGalaoLitro.Tests", "ConversaoGalaoLitro.Tests\ConversaoGalaoLitro.Tests.csproj", "{A2DC9CB0-A360-4DA0-A6A0-E0D571DDBB9E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildDefinitions", "BuildDefinitions", "{507045ED-FE9A-45F0-9AD1-AE22A742B8E3}"
+	ProjectSection(SolutionItems) = preProject
+		Build.yaml = Build.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
