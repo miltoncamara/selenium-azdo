@@ -32,8 +32,8 @@ namespace ConversaoGalaoLitro.Tests
         [TestInitialize()]
         public void Initialize()
         {
-            appURL = Environment.GetEnvironmentVariable("APP_URL");
-            //appURL = "http://localhost:50237/";
+            //appURL = Environment.GetEnvironmentVariable("APP_URL");
+            appURL = "http://localhost:50237/";
 
             string browser = "Chrome";
 
@@ -72,7 +72,7 @@ namespace ConversaoGalaoLitro.Tests
             Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
             string fileName = TestContext.TestResultsDirectory + "Screenshot_" + TestContext.TestName + DateTime.Now.ToString("yyyy-dd-MM-HH-mm-ss") + ".png";
             screenShot.SaveAsFile((fileName), ScreenshotImageFormat.Png);
-            TestContext.AddResultFile(fileName);
+            //TestContext.AddResultFile(fileName);
 
             Assert.AreEqual(resultadoEsperado, resultado);
         }
