@@ -32,8 +32,8 @@ namespace ConversaoGalaoLitro.Tests
         [TestInitialize()]
         public void Initialize()
         {
-            //appURL = Environment.GetEnvironmentVariable("APP_URL");
-            appURL = "http://localhost:50237/";
+            appURL = Environment.GetEnvironmentVariable("APP_URL");
+            //appURL = "http://localhost:50237/";
 
             string browser = "Chrome";
 
