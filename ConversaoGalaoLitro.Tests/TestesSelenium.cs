@@ -1,86 +1,102 @@
-﻿using System;
-using System.Drawing.Imaging;
-using System.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Support.UI;
+﻿//using System;
+//using System.Drawing.Imaging;
+//using System.IO;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using OpenQA.Selenium;
+//using OpenQA.Selenium.Chrome;
+//using OpenQA.Selenium.Firefox;
+//using OpenQA.Selenium.IE;
+//using OpenQA.Selenium.Support.UI;
+///// Fala Milton
+//namespace ConversaoGalaoLitro.Tests
+//{
+//    [TestClass]
+//    public class TestesSelenium
+//    {
+//        private TestContext testContextInstance;
+//        private IWebDriver driver;
+//        private string appURL;
 
-namespace ConversaoGalaoLitro.Tests
-{
-    [TestClass]
-    public class TestesSelenium
-    {
-        private TestContext testContextInstance;
-        private IWebDriver driver;
-        private string appURL;
+//        public TestContext TestContext
+//        {
+//            get
+//            {
+//                return testContextInstance;
+//            }
+//            set
+//            {
+//                testContextInstance = value;
+//            }
+//        }
 
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+//        [TestInitialize()]
+//        public void Initialize()
+//        {
+//            //appURL = Environment.GetEnvironmentVariable("APP_URL");
+//            appURL = "http://localhost:50237/";
 
+<<<<<<< HEAD
+//            string browser = "Chrome";
+=======
         [TestInitialize()]
         public void Initialize()
         {
             appURL = Environment.GetEnvironmentVariable("APP_URL");
             //appURL = "http://localhost:50237/";
+>>>>>>> ccde7803e9dc9d661f3f650f2c0f5e4fe3ec8f34
 
-            string browser = "Chrome";
+//            switch (browser)
+//            {
+//                case "Chrome":
+//                    //driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+//                    driver = new ChromeDriver();
+//                    break;
+//                case "Firefox":
+//                    driver = new FirefoxDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+//                    break;
+//                case "IE":
+//                    driver = new InternetExplorerDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+//                    break;
+//                default:
+//                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+//                    break;
+//            }
+//        }
 
-            switch (browser)
-            {
-                case "Chrome":
-                    //driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
-                    driver = new ChromeDriver();
-                    break;
-                case "Firefox":
-                    driver = new FirefoxDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
-                    break;
-                case "IE":
-                    driver = new InternetExplorerDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
-                    break;
-                default:
-                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
-                    break;
-            }
-        }
 
-        [TestMethod]
-        [DataRow(1, 3.7854)]
-        [DataRow(2, 7.5708)]
-        [DataRow(3, 11.3562)]
-        [TestCategory("TestesSelenium")]
-        public void CalcularGaloesParaLitro_Selenium(double galoes, double resultadoEsperado)
-        {
-            driver.Navigate().GoToUrl(appURL);
-            driver.FindElement(By.Name("txtGalao")).SendKeys(galoes.ToString());
-            driver.FindElement(By.Name("btnSubmit")).Click();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
-            wait.Until((d) => d.FindElement(By.Id("lblResultado")) != null);
-            var resultado = Convert.ToDouble(driver.FindElement(By.Id("lblResultado")).Text);
+//        [TestMethod]
+//        [DataRow(1, 3.7854)]
+//        [DataRow(2, 7.5708)]
+//        [DataRow(3, 11.3562)]
+//        [TestCategory("TestesSelenium")]
+//        public void CalcularGaloesParaLitro_Selenium(double galoes, double resultadoEsperado)
+//        {
+//            driver.Navigate().GoToUrl(appURL);
+//            driver.FindElement(By.Name("txtGalao")).SendKeys(galoes.ToString());
+//            driver.FindElement(By.Name("btnSubmit")).Click();
+//            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
+//            wait.Until((d) => d.FindElement(By.Id("lblResultado")) != null);
+//            var resultado = Convert.ToDouble(driver.FindElement(By.Id("lblResultado")).Text);
 
+<<<<<<< HEAD
+//            Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
+//            string fileName = TestContext.TestResultsDirectory + "Screenshot_" + TestContext.TestName + DateTime.Now.ToString("yyyy-dd-MM-HH-mm-ss") + ".png";
+//            screenShot.SaveAsFile((fileName), ScreenshotImageFormat.Png);
+//            TestContext.AddResultFile(fileName);
+=======
             Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
             string fileName = TestContext.TestResultsDirectory + "Screenshot_" + TestContext.TestName + DateTime.Now.ToString("yyyy-dd-MM-HH-mm-ss") + ".png";
             screenShot.SaveAsFile((fileName), ScreenshotImageFormat.Png);
             TestContext.AddResultFile(fileName);
+>>>>>>> ccde7803e9dc9d661f3f650f2c0f5e4fe3ec8f34
 
-            Assert.AreEqual(resultadoEsperado, resultado);
-        }
+//            Assert.AreEqual(resultadoEsperado, resultado);
+//        }
 
-        [TestCleanup()]
-        public void CleanUp()
-        {
-            driver.Quit();
-        }
-    }
-}
+//        [TestCleanup()]
+//        public void CleanUp()
+//        {
+//            driver.Quit();
+//        }
+//    }
+//}
