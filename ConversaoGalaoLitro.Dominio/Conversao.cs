@@ -6,8 +6,8 @@ namespace ConversaoGalaoLitro.Dominio
     {
         public double GalaoParaLitros(double galoes)
         {
-            return galoes * 3.7854;
-            //return Math.Round(galoes * 3.7854, 4);
+            //return galoes * 3.7854;
+            return Math.Round(galoes * 3.7854, 4);
         }
     }
 }
